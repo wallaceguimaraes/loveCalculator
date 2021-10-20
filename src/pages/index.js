@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, Modal } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, Modal, ImageBackground } from 'react-native';
 import styles from '../styles/pages/index';
 import Dialog from '../components/dialog';
 import api from '../services/api';
@@ -29,7 +29,13 @@ export default function index() {
 
     async function calculator(){
 
-
+     /*    api.calculator({sname: input1, fname: input2})
+        .then( response => 
+            setPercent(response.data.percentage),
+            setsubTitle(response.data.result)            
+        )
+        .catch( err => alert(err) ) */
+ 
         const options = {
             method: 'GET',
             url: 'https://love-calculator.p.rapidapi.com/getPercentage',
@@ -46,7 +52,7 @@ export default function index() {
             }).catch(function (error) {
               alert(error);
           });  
-
+ 
   
 
      
@@ -57,6 +63,8 @@ export default function index() {
 
  return (
 <View style={styles.container}>
+<ImageBackground source={require('../assets/icons/background2.png')} style={styles.imageBackground}> 
+
     <Text style={styles.title}>Vai que cola?</Text>
     <TextInput onChangeText={(text) => setInput1(text)} style={[styles.input,styles.color1]}></TextInput>
     <Modal animationType='slide' transparent={true} visible={visibleModal}>
@@ -69,6 +77,7 @@ export default function index() {
     <TouchableOpacity style={styles.button} onPress={calculator} >
         <Text style={styles.textButton}>Sorte!</Text>
     </TouchableOpacity>
+    </ImageBackground>
 </View>
   
   

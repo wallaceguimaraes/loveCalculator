@@ -4,11 +4,19 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
 
     container: {
-      paddingVertical: 54,  
-      backgroundColor: '#FF00EA',
+     
       flex: 1,
-      justifyContent: 'space-evenly',
-      alignItems: 'center'
+     
+    },
+    imageBackground: {
+        paddingVertical: 54,  
+        //backgroundColor: '#FF00EA',
+        flex: 1,
+        resizeMode: "cover",
+        //justifyContent: "center",
+        //alignItems: "center"
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
     },
     title: {
         fontSize: 36,
@@ -48,7 +56,15 @@ export default StyleSheet.create({
         width: 166,
         height: 45,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+        elevation: 4,      
     },
     textButton: {
         fontSize: 24,
